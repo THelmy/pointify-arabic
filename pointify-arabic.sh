@@ -25,6 +25,19 @@ do
     taa+=('s/ٮ/ت/g')
 done
 
+haa=()
+for (( c=1; c<=4; c++ ))
+do
+    haa+=('s/ه/ه/g')
+done
+for (( c=1; c<=3; c++ ))
+do
+    haa+=('s/ه/ة/g')
+done
+
+
+
+
 gheen=()
 gheen+=('s/ع/غ/g')
 for (( c=1; c<=7; c++ ))
@@ -67,7 +80,8 @@ do
     saad+=('s/ص/ص/g')
 done
 
-strInputVlaue=$(<"$2")
+strInputVlaue=$(<"$1")
+echo $strInputVlaue
 strInputSemiColun=${strInputVlaue// /;}
 #strInputSemiColun=$(echo "$strInputSemiColuns" | sed 's/\\n/,/g')
 line=""
@@ -106,9 +120,13 @@ do
     size=${#saad[@]}
     index=$(($RANDOM % $size))
     saadString=${saad[$index]}    
-    aryOutput+=$(echo -n $newChar | sed "${raaString}; ${seenString}; ${daalString}; ${zaaString}; ${saadString}; ${gheenString}; s/ه/ة/g; ${taaString}; ${jeemString}; s/ڡ/ف/g; s/ٯ/ق/g; s/ں/ن/g; s/ى/ي/g")
-    echo $aryOutput
-     
+       
+    size=${#haa[@]}
+    index=$(($RANDOM % $size))
+    haaString=${haa[$index]} 
+      
+    aryOutput+=$(echo -n $newChar | sed "${raaString}; ${seenString}; ${daalString}; ${zaaString}; ${saadString}; ${gheenString}; ${haaString}; ${taaString}; ${jeemString}; s/ڡ/ف/g; s/ٯ/ق/g; s/ں/ن/g; s/ى/ي/g")
+         
 done <<< $strInputSemiColun
 
 strKAKA=$aryOutput
