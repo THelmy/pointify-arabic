@@ -35,9 +35,6 @@ do
     haa+=('s/ه/ة/g')
 done
 
-
-
-
 gheen=()
 gheen+=('s/ع/غ/g')
 for (( c=1; c<=7; c++ ))
@@ -83,7 +80,7 @@ done
 strInputVlaue=$(<"$1")
 echo $strInputVlaue
 strInputSemiColun=${strInputVlaue// /;}
-#strInputSemiColun=$(echo "$strInputSemiColuns" | sed 's/\\n/,/g')
+
 line=""
 echo $line > $2
 aryOutput=()
@@ -133,7 +130,3 @@ strKAKA=$aryOutput
 strWithSemiColun=${strKAKA//[[:blank:]]/}
 
 echo $strWithSemiColun | sed 's/;/ /g' > $2
-
-#echo ${strWithSemiColun/;// } > $2
-
-# cat $1 | sed "${raaString}; ${seenString}; ${daalString}; ${zaaString}; ${saadString}; ${gheenString}; s/ه/ة/g; ${taaString}; ${jeemString}; s/ڡ/ف/g; s/ٯ/ق/g; s/ں/ن/g; s/ى/ي/g" > $2'
