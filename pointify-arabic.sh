@@ -67,7 +67,7 @@ do
     saad+=('s/ص/ص/g')
 done
 
-strInputVlaue=$(<output_depointed.txt)
+strInputVlaue=$(<"$2")
 strInputSemiColun=${strInputVlaue// /;}
 #strInputSemiColun=$(echo "$strInputSemiColuns" | sed 's/\\n/,/g')
 line=""
